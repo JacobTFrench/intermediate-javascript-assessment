@@ -43,27 +43,27 @@ function daBears(){
 // Which function(s) access the "chair" variable and get "Too Big!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale1 = ["papaBear", "mamaBear"];
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale2 = ["goldilocks"];
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale3 = ["mamaBear"];
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale4 = ["daBears", "papaBear", "mamaBear", "goldilocks"];
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
-var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear"];
 
 
 // *************
@@ -82,7 +82,21 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
+function Vehicle(gasRemaining){
+  this.gasRemaining = 100;
+}
 
+Vehicle.prototype.drive = function(){
+  return this.gasRemaining -=25;
+};
+
+var charger = new Vehicle()
+var mustang = new Vehicle()
+
+charger.drive();
+
+mustang.drive();
+mustang.drive();
 
 
 
@@ -111,6 +125,11 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 
 
 
+String.prototype.grammarPolice = function() {
+  let str = this.toLowerCase().split(" ");
+  let upperCaseString = str.map(e => e.charAt(0).toUpperCase() + e.slice(1));
+  return upperCaseString.join(" ");
+};
 // *************
 // * PROBLEM 4 *
 // *************
@@ -126,7 +145,17 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // In all other cases, return "Different values"
 
 // CODE HERE...
-
+function valueType(p1,p2) {
+  if (p1 == p2){
+    if (typeof p1 == typeof p2){
+      return ("Exactly the same");
+    } else {
+      return ("Same value, different types");
+    }
+  } else {
+    return ("Different values")
+  }
+}
 
 
 // *************
@@ -141,3 +170,9 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 var theAnswer = "Unknown";
 
 // CODE HERE...
+
+function promiseCatcher(para){
+  para.then(function(result){
+    return (theAnswer = result)
+  })
+}
